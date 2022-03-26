@@ -12,7 +12,7 @@ export class Faculty {
     abbreviation: string;
 
     @Prop({ required: true, ref: User.name, default: [] })
-    admins: MongooseSchema.Types.ObjectId[];
+    admins?: MongooseSchema.Types.ObjectId[];
 }
 
 export const FacultySchema = SchemaFactory.createForClass(Faculty);

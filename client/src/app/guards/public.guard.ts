@@ -10,7 +10,6 @@ export class PublicGuard implements CanActivate {
     ) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        return true;
         this.isLoggedIn = !!localStorage.getItem('token');
         if (this.isLoggedIn) {
             this.router.navigate(['']);

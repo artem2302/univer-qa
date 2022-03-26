@@ -1,0 +1,17 @@
+<div style="display: flex; justify-content: center; margin-left: 20px; margin-right: 20px;">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th colspan="2">Abbreviation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let faculty of faculties">
+                <td>{{faculty.name}}</td>
+                <td>{{faculty.abbreviation}}</td>
+                <td><a href='#'>Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-//import { AuthService } from '../services/auth.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  //providers: [AuthService]
+  providers: [AuthService]
 })
 export class LoginComponent {
   form: FormGroup;
@@ -15,7 +15,7 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder,
-    //   private authService: AuthService,
+    private authService: AuthService,
     // private router: Router
   ) {
     this.form = this.fb.group({
@@ -26,11 +26,11 @@ export class LoginComponent {
 
   login() {
     const val = this.form.value;
-    // this.authService.login(val.login, val.password)
-    //   .subscribe({
-    //     error: () => alert('Login failed'),
-    //     next: (d: any) => localStorage.setItem('token', d.token)
-    //   })
+    this.authService.login(val.login, val.password)
+      .subscribe({
+        error: () => alert('Login failed'),
+        next: (d: any) => localStorage.setItem('token', d.token)
+      })
   }
 
 }
